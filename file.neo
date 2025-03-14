@@ -1,0 +1,7 @@
+// Hello Neo'ers
+// How are you doing today?
+// here's some Neo Code.
+
+fn main() -> int {
+  println "Hello Neo'ers";
+}
