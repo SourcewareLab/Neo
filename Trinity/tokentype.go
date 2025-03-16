@@ -1,4 +1,4 @@
-package nexus
+package trinity
 
 type TokenType int
 
@@ -51,6 +51,15 @@ const (
 	INF
 	RANGE_FOR
 	PRINT
-	FUNC_WORD
 	ERROR_WORD
+
+	//End of Line
+	EOF
+
+	//Function Related
+	FUNC_RETURN
+	FUNC_WORD
+
+	//For testing
+	ERR
 )
