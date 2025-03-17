@@ -1,7 +1,5 @@
 package trinity
 
-import "fmt"
-
 func (scanner *Scanner) nextChar(char byte) bool {
 	if scanner.isAtEnd() || scanner.Source[scanner.current] != char {
 		return false
@@ -51,7 +49,12 @@ func (scanner *Scanner) handleString() {
 
 	// scanner.current++ // for the last "
 
-	literal := scanner.Source[scanner.start:scanner.current]
+	literal := scanner.Source[scanner.start+1 : scanner.current-1]
 
-	scanner.addToken(STRING, literal)
+	scanner.Tokens = append(scanner.Tokens, Token{
+		TokenType: DUB_QUOTES,
+		Literal:   literal,
+		Line:      scanner.line,
+		Lexeme:    "\"\"",
+	})
 }

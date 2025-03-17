@@ -6,14 +6,20 @@ func (scanner *Scanner) ScanToken() {
 
 	switch char {
 	case '{':
-		scanner.addToken(BRACE_LEFT, NULL)
+		scanner.addToken(BRACE_LEFT, nil)
 		break
 	case '}':
-		scanner.addToken(BRACE_RIGHT, NULL)
+		scanner.addToken(BRACE_RIGHT, nil)
+		break
+	case '(':
+		scanner.addToken(PAREN_LEFT, nil)
+		break
+	case ')':
+		scanner.addToken(PAREN_RIGHT, nil)
 		break
 	case '-':
 		if scanner.nextChar('>') {
-			scanner.addToken(FUNC_RETURN, NULL) // Its null for now, it should have the dataType as a literal
+			scanner.addToken(FUNC_RETURN, nil)
 		}
 		break
 	case '/':
@@ -23,27 +29,39 @@ func (scanner *Scanner) ScanToken() {
 			}
 			scanner.line++
 		} else {
-			scanner.addToken(DIVIDE, NULL)
+			scanner.addToken(DIVIDE, nil)
 		}
 		break
 	case 'f':
 		if scanner.nextChar('n') {
-			scanner.addToken(FUNC_WORD, NULL)
+			scanner.addToken(FUNC_WORD, nil)
 		} // should give error else
 		break
 	case 'm':
 		if scanner.matchString("ain()") {
-			scanner.addToken(MAIN_FUNC, NULL)
+			scanner.addToken(MAIN_FUNC, nil)
+		} else if scanner.matchString("ut") {
+			scanner.addToken(MUT, nil)
+		}
+		break
+	case 'c':
+		if scanner.matchString("onst") {
+			scanner.addToken(CONST, nil)
 		}
 		break
 	case 'i':
 		if scanner.matchString("nt") {
-			scanner.addToken(INT, NULL)
+			scanner.addToken(INT, nil)
 		}
 		break
 	case 'p':
 		if scanner.matchString("rintln") {
-			scanner.addToken(PRINT, NULL)
+			scanner.addToken(PRINT, nil)
+		}
+		break
+	case 's':
+		if scanner.matchString("tring") {
+			scanner.addToken(STRING, nil)
 		}
 		break
 	case '"':
@@ -57,7 +75,7 @@ func (scanner *Scanner) ScanToken() {
 		scanner.line++
 		break
 	default:
-		scanner.addToken(ERR, NULL)
+		scanner.addToken(ERR, nil)
 		break
 	}
 }
