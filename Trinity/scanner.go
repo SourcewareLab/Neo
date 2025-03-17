@@ -23,5 +23,7 @@ func (scanner *Scanner) ScanTokens() {
 	scanner.Tokens = append(scanner.Tokens, Token{ // Adding and End of File TOken at end
 		TokenType: EOF,
 		Line:      scanner.line,
+		Lexeme:    "EOF",
+		Literal:   nil,
 	})
 }

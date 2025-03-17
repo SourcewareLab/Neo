@@ -4,63 +4,62 @@ type TokenType int
 
 const (
 	//Types
-	INT = iota
-	STRING
-	FUNC_TYPE
-	NULL
-	BOOL
-	ERROR_TYPE
+	INT        = iota //done
+	FLOAT             //done
+	STRING            //done
+	FUNC_TYPE         // done
+	NULL              // done
+	BOOL              // done
+	ERROR_TYPE        // done
 
 	//Arithmetic
-	PLUS
-	MINUS
-	MULTIPLY
-	DIVIDE
+	PLUS     // done
+	MINUS    // done
+	MULTIPLY // done
+	DIVIDE   //done
 
 	//Comparison
-	GREATER
-	GREATER_EQ
-	LESS
-	LESS_EQ
-	EQ_EQ
-	NOT_EQ
+	GREATER    //done
+	GREATER_EQ //done
+	LESS       //done
+	LESS_EQ    //done
+	EQ_EQ      //done
+	NOT_EQ     //done
 
 	//Logical
-	NOT
-	AND
-	OR
+	NOT //done
+	AND //done
+	OR  //done
 
 	//Single Chars
-	EQUAL
-	SEMI_COLON
-	COMMA
-	PAREN_LEFT
-	PAREN_RIGHT
-	BRACE_LEFT
-	BRACE_RIGHT
-	DUB_QUOTES
-	SINGLE_QUOTE
-	COLON
+	EQUAL        //done
+	SEMI_COLON   //done
+	COMMA        //done
+	PAREN_LEFT   //done
+	PAREN_RIGHT  //done
+	BRACE_LEFT   //done
+	BRACE_RIGHT  //done
+	DUB_QUOTES   //done
+	SINGLE_QUOTE // done
+	COLON        //done
 
 	//Keywords
-	MUT
-	CONST
-	IF
-	ELSE
-	ELSE_IF
-	INF
-	RANGE_FOR
-	PRINT
-	ERROR_WORD
-	MAIN_FUNC
+	MUT        //done
+	CONST      //done
+	IF         //done
+	ELSE       //done
+	ELSE_IF    //done
+	FOR        //done
+	INF        //done
+	RANGE      // done
+	PRINT      //done
+	ERROR_WORD // dunno about why i added this
+	MAIN_FUNC  //done
 
 	//End of Line
-	EOF
+	EOF //done
 
 	//Function Related
-	FUNC_RETURN
-	FUNC_WORD
-
-	//For testing
-	ERR
+	FUNC_RETURN // done
+	FUNC_WORD   //done
 )
