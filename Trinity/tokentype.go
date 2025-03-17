@@ -3,14 +3,27 @@ package trinity
 type TokenType int
 
 const (
-	//Types
-	INT        = iota //done
-	FLOAT             //done
-	STRING            //done
-	FUNC_TYPE         // done
-	NULL              // done
-	BOOL              // done
-	ERROR_TYPE        // done
+	//Keywords
+	INT         = iota //done
+	FLOAT              //done
+	STRING             //done
+	FUNC_TYPE          // done
+	NULL               // done
+	BOOL               // done
+	ERROR_TYPE         // done
+	MUT                //done
+	CONST              //done
+	IF                 //done
+	ELSE               //done
+	ELSE_IF            //done
+	FOR                //done
+	INF                //done
+	RANGE              // done
+	PRINT              //done
+	ERROR_WORD         // dunno about why i added this
+	MAIN_FUNC          //done
+	FUNC_RETURN        // done
+	FUNC_WORD          //done
 
 	//Arithmetic
 	PLUS     // done
@@ -43,23 +56,6 @@ const (
 	SINGLE_QUOTE // done
 	COLON        //done
 
-	//Keywords
-	MUT        //done
-	CONST      //done
-	IF         //done
-	ELSE       //done
-	ELSE_IF    //done
-	FOR        //done
-	INF        //done
-	RANGE      // done
-	PRINT      //done
-	ERROR_WORD // dunno about why i added this
-	MAIN_FUNC  //done
-
 	//End of Line
 	EOF //done
-
-	//Function Related
-	FUNC_RETURN // done
-	FUNC_WORD   //done
 )

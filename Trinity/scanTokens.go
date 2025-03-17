@@ -96,77 +96,9 @@ func (scanner *Scanner) ScanToken() {
 		break
 	case ':':
 		scanner.addToken(COLON, nil)
-
-		// Keywords
-	case 'f':
-		if scanner.nextChar('n') {
-			scanner.addToken(FUNC_WORD, nil)
-		} else if scanner.matchString("loat") {
-			scanner.addToken(FLOAT, nil)
-		} else if scanner.matchString("unction") {
-			scanner.addToken(FUNC_TYPE, nil)
-		} // should give error else
 		break
-	case 'n':
-		if scanner.matchString("ull") {
-			scanner.addToken(NULL, nil)
-		}
-		break
-	case 'b':
-		if scanner.matchString("ool") {
-			scanner.addToken(BOOL, nil)
-		}
-		break
-	case 'e':
-		if scanner.matchString("rr") {
-			scanner.addToken(ERROR_TYPE, nil)
-		} else if scanner.matchString("lse") {
-			if scanner.matchString(" if") { // nested if for Optimization, les go
-				scanner.addToken(ELSE_IF, nil)
-			} else {
-				scanner.addToken(ELSE, nil)
-			}
-		}
-		break
-	case 'm':
-		if scanner.matchString("ain()") {
-			scanner.addToken(MAIN_FUNC, nil)
-		} else if scanner.matchString("ut") {
-			scanner.addToken(MUT, nil)
-		}
-		break
-	case 'c':
-		if scanner.matchString("onst") {
-			scanner.addToken(CONST, nil)
-		}
-		break
-	case 'i':
-		if scanner.nextChar('n') {
-			if scanner.nextChar('f') {
-				scanner.addToken(INF, nil)
-			} else if scanner.nextChar('t') {
-				scanner.addToken(INT, nil)
-			}
-		} else if scanner.nextChar('f') {
-			scanner.addToken(IF, nil)
-		}
-		break
-	case 'r':
-		if scanner.matchString("ange") {
-			scanner.addToken(RANGE, nil)
-		} else if scanner.matchString("eturn") {
-			scanner.addToken(FUNC_RETURN, nil)
-		}
-		break
-	case 'p':
-		if scanner.matchString("rintln") {
-			scanner.addToken(PRINT, nil)
-		}
-		break
-	case 's':
-		if scanner.matchString("tring") {
-			scanner.addToken(STRING, nil)
-		}
+	case ';':
+		scanner.addToken(SEMI_COLON, nil)
 		break
 	case '\'': // '' and "" both are string
 	case '"':
