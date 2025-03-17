@@ -24,37 +24,22 @@ func (scanner *Scanner) isAtEnd() bool {
 	return scanner.current >= len(scanner.Source)
 }
 
-func (scanner *Scanner) matchString(str string) bool { // should throw error later when we implement syntax errors
-	for _, val := range str {
-		if scanner.Source[scanner.current] != byte(val) {
-			return false
-		}
-
-		scanner.current++
-	}
-
-	return true
+func (scanner *Scanner) isDigit(ch byte) bool {
+	return ch >= '0' && ch <= '9'
 }
 
-func (scanner *Scanner) handleString() {
-	for {
-		if scanner.nextChar('"') || scanner.isAtEnd() {
-			break
-		}
-		scanner.current++
-	}
-
-	if scanner.isAtEnd() {
-	} // should throw error
-
-	// scanner.current++ // for the last "
-
-	literal := scanner.Source[scanner.start+1 : scanner.current-1]
-
-	scanner.Tokens = append(scanner.Tokens, Token{
-		TokenType: DUB_QUOTES,
-		Literal:   literal,
-		Line:      scanner.line,
-		Lexeme:    "\"\"",
-	})
+func (scanner *Scanner) isAlpha(ch byte) bool {
+	return ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z' || ch == '_'
 }
+
+// func (scanner *scanner) matchstring(str string) bool { // should throw error later when we implement syntax errors
+//	for _, val := range str {
+//		if scanner.source[scanner.current] != byte(val) {
+//			return false
+//		}
+//
+//		scanner.current++
+//	}
+//
+//	return true
+// }

@@ -112,6 +112,14 @@ func (scanner *Scanner) ScanToken() {
 		scanner.line++
 		break
 	default: // Handling of number/float literals and identifiers (var_name, func_name etc) TBD here
+		c := scanner.Source[scanner.current]
+		if scanner.isDigit(c) {
+			scanner.handleNumber()
+			break
+		} else if scanner.isAlpha(c) {
+			scanner.handleIdentifier()
+		}
+
 		break
 	}
 }

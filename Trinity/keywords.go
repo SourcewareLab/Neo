@@ -1,9 +1,9 @@
 package trinity
 
 var keywords = map[string]TokenType{
-	"int":      INT,
-	"float":    FLOAT,
-	"string":   STRING,
+	"int":      INT_WORD,
+	"float":    FLOAT_WORD,
+	"string":   STRING_WORD,
 	"function": FUNC_TYPE,
 	"null":     NULL,
 	"bool":     BOOL,
