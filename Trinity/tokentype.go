@@ -52,6 +52,7 @@ const (
 	RANGE_FOR
 	PRINT
 	ERROR_WORD
+	MAIN_FUNC
 
 	//End of Line
 	EOF
