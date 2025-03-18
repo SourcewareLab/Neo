@@ -1,6 +1,9 @@
-package trinity
+package lexscanner
 
-import "strconv"
+import (
+	lextoken "NeoLang/Trinity/Token"
+	"strconv"
+)
 
 func (scanner *Scanner) handleString() {
 	for {
@@ -15,11 +18,11 @@ func (scanner *Scanner) handleString() {
 
 	literal := scanner.Source[scanner.start+1 : scanner.current-1]
 
-	scanner.Tokens = append(scanner.Tokens, Token{
-		TokenType: STRING,
+	scanner.Tokens = append(scanner.Tokens, lextoken.Token{
+		TokenType: lextoken.STRING,
 		Literal:   literal,
 		Line:      scanner.line,
-		Lexeme:    "\"\"",
+		Lexeme:    "string",
 	})
 }
 
@@ -44,10 +47,10 @@ func (scanner *Scanner) handleNumber() {
 		s := scanner.Source[scanner.start:scanner.current]
 		float, _ := strconv.ParseFloat(s, 64)
 
-		scanner.Tokens = append(scanner.Tokens, Token{
+		scanner.Tokens = append(scanner.Tokens, lextoken.Token{
 			Lexeme:    "float",
 			Literal:   float,
-			TokenType: FLOAT,
+			TokenType: lextoken.FLOAT,
 			Line:      scanner.line,
 		})
 		return
@@ -56,10 +59,10 @@ func (scanner *Scanner) handleNumber() {
 	s := scanner.Source[scanner.start:scanner.current]
 	int, _ := strconv.ParseInt(s, 10, 64)
 
-	scanner.Tokens = append(scanner.Tokens, Token{
+	scanner.Tokens = append(scanner.Tokens, lextoken.Token{
 		Lexeme:    "int",
 		Literal:   int,
-		TokenType: INT,
+		TokenType: lextoken.INT,
 		Line:      scanner.line,
 	})
 }
@@ -75,9 +78,9 @@ func (scanner *Scanner) handleIdentifier() {
 
 	lexeme := scanner.Source[scanner.start:scanner.current]
 
-	val, found := keywords[lexeme]
+	val, found := lextoken.Keywords[lexeme]
 	if !found {
-		scanner.addToken(IDENTIFIER, nil)
+		scanner.addToken(lextoken.IDENTIFIER, nil)
 		return
 	}
 

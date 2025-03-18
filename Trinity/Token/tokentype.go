@@ -1,4 +1,4 @@
-package trinity
+package lextoken
 
 type TokenType int
 

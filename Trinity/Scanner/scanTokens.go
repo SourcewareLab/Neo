@@ -1,8 +1,6 @@
-package trinity
+package lexscanner
 
-//TODO: Number Literals
-//TODO: identifiers
-//TODO: I did it wrong, keywords will be handled seperately
+import lextoken "NeoLang/Trinity/Token"
 
 func (scanner *Scanner) ScanToken() {
 	char := scanner.Source[scanner.current]
@@ -12,31 +10,31 @@ func (scanner *Scanner) ScanToken() {
 
 	//Brackets
 	case '{':
-		scanner.addToken(BRACE_LEFT, nil)
+		scanner.addToken(lextoken.BRACE_LEFT, nil)
 		break
 	case '}':
-		scanner.addToken(BRACE_RIGHT, nil)
+		scanner.addToken(lextoken.BRACE_RIGHT, nil)
 		break
 	case '(':
-		scanner.addToken(PAREN_LEFT, nil)
+		scanner.addToken(lextoken.PAREN_LEFT, nil)
 		break
 	case ')':
-		scanner.addToken(PAREN_RIGHT, nil)
+		scanner.addToken(lextoken.PAREN_RIGHT, nil)
 		break
 
 		//Arithmetic
 	case '-':
 		if scanner.nextChar('>') {
-			scanner.addToken(FUNC_RETURN, nil)
+			scanner.addToken(lextoken.FUNC_RETURN, nil)
 			break
 		}
-		scanner.addToken(MINUS, nil)
+		scanner.addToken(lextoken.MINUS, nil)
 		break
 	case '+':
-		scanner.addToken(PLUS, nil)
+		scanner.addToken(lextoken.PLUS, nil)
 		break
 	case '*':
-		scanner.addToken(MULTIPLY, nil)
+		scanner.addToken(lextoken.MULTIPLY, nil)
 		break
 	case '/':
 		if scanner.nextChar('/') {
@@ -45,60 +43,60 @@ func (scanner *Scanner) ScanToken() {
 			}
 			scanner.line++
 		} else {
-			scanner.addToken(DIVIDE, nil)
+			scanner.addToken(lextoken.DIVIDE, nil)
 		}
 		break
 
 		// Comparison
 	case '>':
 		if scanner.nextChar('=') {
-			scanner.addToken(GREATER_EQ, nil)
+			scanner.addToken(lextoken.GREATER_EQ, nil)
 			break
 		}
-		scanner.addToken(GREATER, nil)
+		scanner.addToken(lextoken.GREATER, nil)
 		break
 	case '<':
 		if scanner.nextChar('=') {
-			scanner.addToken(LESS_EQ, nil)
+			scanner.addToken(lextoken.LESS_EQ, nil)
 			break
 		}
-		scanner.addToken(LESS, nil)
+		scanner.addToken(lextoken.LESS, nil)
 		break
 	case '=':
 		if scanner.nextChar('=') {
-			scanner.addToken(EQ_EQ, nil)
+			scanner.addToken(lextoken.EQ_EQ, nil)
 			break
 		}
-		scanner.addToken(EQUAL, nil)
+		scanner.addToken(lextoken.EQUAL, nil)
 		break
 		//Logical
 	case '!':
 		if scanner.nextChar('=') {
-			scanner.addToken(NOT_EQ, nil)
+			scanner.addToken(lextoken.NOT_EQ, nil)
 			break
 		}
-		scanner.addToken(NOT, nil)
+		scanner.addToken(lextoken.NOT, nil)
 		break
 	case '&':
 		if scanner.nextChar('&') {
-			scanner.addToken(AND, nil)
+			scanner.addToken(lextoken.AND, nil)
 		}
 		break
 	case '|':
 		if scanner.nextChar('|') {
-			scanner.addToken(OR, nil)
+			scanner.addToken(lextoken.OR, nil)
 		}
 		break
 
 	// Single Char (whats left)
 	case ',':
-		scanner.addToken(COMMA, nil)
+		scanner.addToken(lextoken.COMMA, nil)
 		break
 	case ':':
-		scanner.addToken(COLON, nil)
+		scanner.addToken(lextoken.COLON, nil)
 		break
 	case ';':
-		scanner.addToken(SEMI_COLON, nil)
+		scanner.addToken(lextoken.SEMI_COLON, nil)
 		break
 	case '\'': // '' and "" both are string
 	case '"':

@@ -1,4 +1,4 @@
-package trinity
+package lextoken
 
 type Token struct {
 	TokenType TokenType

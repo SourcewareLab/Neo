@@ -1,6 +1,6 @@
-package trinity
+package lextoken
 
-var keywords = map[string]TokenType{
+var Keywords = map[string]TokenType{
 	"int":      INT_WORD,
 	"float":    FLOAT_WORD,
 	"string":   STRING_WORD,
