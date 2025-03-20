@@ -4,4 +4,6 @@
 
 fn main() -> int {
   println "Hello Neo'ers";
+  println 69;
+  println 420.69;
 }

@@ -1,7 +1,7 @@
 package main
 
 import (
-	nexus "NeoLang/Nexus"
+	trinity "NeoLang/Trinity"
 	"flag"
 	"fmt"
 )
@@ -13,10 +13,5 @@ func main() {
 
 	fmt.Println(*pathPtr)
 
-	data, err := nexus.ReadFile(*pathPtr)
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-
-	fmt.Println(data)
+	trinity.RunLexer(*pathPtr)
 }
