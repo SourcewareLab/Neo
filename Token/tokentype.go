@@ -1,6 +1,6 @@
-package lextoken
+package token
 
-type TokenType int
+type Type int
 
 const (
 	INT        = iota //done

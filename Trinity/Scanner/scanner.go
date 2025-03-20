@@ -1,12 +1,12 @@
 package lexscanner
 
 import (
-	lextoken "NeoLang/Trinity/Token"
+	token "NeoLang/Token"
 )
 
 type Scanner struct {
 	Source  string // The Source string
-	Tokens  []lextoken.Token
+	Tokens  []token.Token
 	start   int
 	current int
 	line    int
@@ -15,7 +15,7 @@ type Scanner struct {
 func NewScanner(source string) *Scanner {
 	return &Scanner{
 		Source:  source,
-		Tokens:  make([]lextoken.Token, 0),
+		Tokens:  make([]token.Token, 0),
 		start:   0,
 		current: 0,
 		line:    0,
@@ -34,8 +34,8 @@ func (scanner *Scanner) ScanTokens() {
 		scanner.ScanToken()
 	}
 
-	scanner.Tokens = append(scanner.Tokens, lextoken.Token{ // Adding and End of File TOken at end
-		TokenType: lextoken.EOF,
+	scanner.Tokens = append(scanner.Tokens, token.Token{ // Adding and End of File TOken at end
+		TokenType: token.EOF,
 		Line:      scanner.line,
 		Lexeme:    "EOF",
 		Literal:   nil,

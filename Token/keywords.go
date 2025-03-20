@@ -1,6 +1,6 @@
-package lextoken
+package token
 
-var Keywords = map[string]TokenType{
+var Keywords = map[string]Type{
 	"int":      INT_WORD,
 	"float":    FLOAT_WORD,
 	"string":   STRING_WORD,
