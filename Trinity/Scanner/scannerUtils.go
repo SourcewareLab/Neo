@@ -33,15 +33,3 @@ func (scanner *Scanner) isDigit(ch byte) bool {
 func (scanner *Scanner) isAlpha(ch byte) bool {
 	return ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z' || ch == '_'
 }
-
-// func (scanner *scanner) matchstring(str string) bool { // should throw error later when we implement syntax errors
-//	for _, val := range str {
-//		if scanner.source[scanner.current] != byte(val) {
-//			return false
-//		}
-//
-//		scanner.current++
-//	}
-//
-//	return true
-// }
