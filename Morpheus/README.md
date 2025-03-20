@@ -1,3 +1,3 @@
 # Morpheus
 
-The Official Neo Parser.
+The Official Parser for the Neo Programming Language.
