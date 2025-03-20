@@ -1,11 +1,13 @@
 package parser
 
+import token "NeoLang/Token"
+
 type Parser struct {
-	Tokens  []any // SWITCH: Token
+	Tokens  []token.Type
 	current int
 }
 
-func NewParser(tokens []any) Parser { // SWITCH: Token
+func NewParser(tokens []token.Type) Parser {
 	return Parser{
 		Tokens:  tokens,
 		current: 0,

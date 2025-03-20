@@ -1,12 +1,14 @@
 package expr
 
+import token "NeoLang/Token"
+
 type Expr struct {
 	Left     *Expr
-	Operator any // SWITCH: Token
+	Operator token.Type
 	Right    *Expr
 }
 
-func NewExpr(left *Expr, operator any, right *Expr) Expr { // SWITCH: Token
+func NewExpr(left *Expr, operator token.Type, right *Expr) Expr {
 	return Expr{
 		Left:     left,
 		Right:    right,
